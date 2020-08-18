@@ -13,7 +13,7 @@ public class GreetingController {
 
     @RequestMapping("/greeting")
     public String greeting(@AuthenticationPrincipal OidcUser oidcUser, Model model,
-                           @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient client){
+                           @RegisteredOAuth2AuthorizedClient ("okta") OAuth2AuthorizedClient client){
 
         model.addAttribute("username", oidcUser.getEmail());
         model.addAttribute("idToken", oidcUser.getIdToken());
